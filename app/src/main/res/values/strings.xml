@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Sample API</string>
+    <string name="list">Liste</string>
+    <string name="getData">Obtenir les données</string>
+</resources>

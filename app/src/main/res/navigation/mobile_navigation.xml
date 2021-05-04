@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mobile_navigation.xml"
+    app:startDestination="@id/tab1">
+
+    <fragment
+        android:id="@+id/tab1"
+        android:name="com.eseo.sampleapi.ui.main.fragment.ListFragment"
+        android:label="Page1">
+        <action
+            android:id="@+id/showUserDetails"
+            app:destination="@id/tab2"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/tab2"
+        android:name="com.eseo.sampleapi.ui.main.fragment.DetailsFragment"
+        android:label="Page1">
+        <argument
+            android:name="userId"
+            app:argType="integer" />
+    </fragment>
+
+</navigation>
