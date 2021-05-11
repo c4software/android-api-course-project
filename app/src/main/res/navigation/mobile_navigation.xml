@@ -18,10 +18,17 @@
     <fragment
         android:id="@+id/tab2"
         android:name="com.eseo.sampleapi.ui.main.fragment.DetailsFragment"
-        android:label="Page1">
+        android:label="Page2">
         <argument
+            android:defaultValue="-1"
             android:name="userId"
             app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/tab3"
+        android:name="com.eseo.sampleapi.ui.main.fragment.AboutFragment"
+        android:label="about">
     </fragment>
 
 </navigation>

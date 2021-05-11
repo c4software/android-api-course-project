@@ -42,8 +42,7 @@ interface ApiService {
                 .writeTimeout(30, TimeUnit.SECONDS)
                 .addInterceptor(HttpLoggingInterceptor().setLevel(if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE))
                 .addInterceptor(Interceptor { chain: Interceptor.Chain ->
-                    val request =
-                        chain.request().newBuilder().addHeader("Accept", "application/json").build()
+                    val request = chain.request().newBuilder().addHeader("Accept", "application/json").build()
                     chain.proceed(request)
                 })
                 .build()

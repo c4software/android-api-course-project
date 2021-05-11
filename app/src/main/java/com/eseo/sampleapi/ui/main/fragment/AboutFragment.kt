@@ -9,7 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -26,9 +25,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class DetailsFragment : Fragment() {
-
-    val args: DetailsFragmentArgs by navArgs()
+class AboutFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,37 +33,10 @@ class DetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_details, container, false)
+        return inflater.inflate(R.layout.fragment_about, container, false)
     }
-
-    override fun onResume() {
-        super.onResume()
-        getData()
-    }
-
-    private fun getData() {
-        if (args.userId == -1) {
-            findNavController().popBackStack()
-        }
-
-        CoroutineScope(Dispatchers.IO).launch {
-            val user = UsersService.instance.getUser(args.userId)
-            activity?.runOnUiThread {
-                view?.apply {
-                    val avatar = findViewById<ImageView>(R.id.avatar)
-                    val identity = findViewById<TextView>(R.id.identity)
-
-                    identity.text = user.identity()
-                    Glide.with(avatar.context)
-                        .load(user.avatar)
-                        .into(avatar)
-                }
-            }
-        }
-    }
-
 
     companion object {
-        fun newInstance() = DetailsFragment()
+        fun newInstance() = AboutFragment()
     }
 }

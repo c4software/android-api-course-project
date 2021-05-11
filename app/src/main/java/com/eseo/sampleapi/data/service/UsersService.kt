@@ -6,13 +6,7 @@ class UsersService {
 
     suspend fun getUsers(page: Int): List<LocalUser> {
         return ApiService.instance.getUsers(page).data.map {
-            LocalUser(
-                it.id,
-                it.email,
-                it.first_name,
-                it.last_name,
-                it.avatar
-            )
+            LocalUser(it.id, it.email, it.first_name, it.last_name, it.avatar)
         }
     }
 

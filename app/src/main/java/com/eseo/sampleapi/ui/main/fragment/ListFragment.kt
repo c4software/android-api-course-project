@@ -41,6 +41,13 @@ class ListFragment : Fragment() {
         return view
     }
 
+    override fun onResume() {
+        super.onResume()
+        if(dataSource.isEmpty()) {
+            getData()
+        }
+    }
+
     private fun init(view: View) {
         view.findViewById<Button>(R.id.refresh).setOnClickListener { getData() }
 
